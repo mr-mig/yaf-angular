@@ -20,7 +20,7 @@
   "dependencies": {
     "angular-cjs": "git://github.com/mr-mig/angular-cjs#v1.0.0",
     "extend": "^2.0.0",
-    "yaf": "^0.2.1"
+    "yaf": "^0.3.0"
   },
   "devDependencies": {
     "browserify": "^6.3.3",
