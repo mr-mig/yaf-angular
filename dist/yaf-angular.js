@@ -445,7 +445,17 @@ function LinkBus(scope) {
 }
 
 // add a state as a change source
-LinkBus.prototype.source = function (state, field) {
+LinkBus.prototype.source = function (state, field, deep) {
+  //1. state is always deep-watched
+  //2. state + field is not deepwatched by default
+  //3. state + arrayField is not deepwatched, but watchCollection is used + field is shallow watched
+  //4. state + arrayField + deep is deepwatched
+
+
+  var forceDeep = !field || deep;
+  var lengthyField = field && Array.isArray(state[field]);
+  var watchCollection = field && lengthyField && !forceDeep;
+  var watchReference = field && lengthyField;
 
   // get hold of all registered states
   this.sources.push({
@@ -453,7 +463,7 @@ LinkBus.prototype.source = function (state, field) {
     field: field
   });
 
-  if (typeof state[field] === 'function') {
+  if (field && typeof state[field] === 'function') {
     return this.fromFn(state, field);
   }
 
@@ -469,6 +479,15 @@ LinkBus.prototype.source = function (state, field) {
 
   var watchHandler = function (n, o) {
     if (n !== o) {
+      console.log('value changed', {
+        forceDeep: forceDeep,
+        lengthy: lengthyField,
+        collection: watchCollection,
+        reference: watchReference,
+        n: n,
+        o: o
+      });
+
       this._dispatch({
         state: state,
         field: field,
@@ -476,9 +495,28 @@ LinkBus.prototype.source = function (state, field) {
     }
   }.bind(this);
 
-  //deep watch object if no field defined
-  // todo Add deep watch as a parameter to the link?
-  this.scope.$watch(watched, watchHandler, !field);
+  var watcherFn = watchCollection ? this.scope.$watchCollection.bind(this.scope) : this.scope.$watch.bind(this.scope);
+  var deregisterEntityWatcher = watcherFn(watched, watchHandler, forceDeep);
+
+//  if (watchReference) {
+//    var referenceWatcher = function () {
+//      return state;
+//    };
+//
+//    this.scope.$watch(referenceWatcher, function (n, o) {
+//      if (n !== o) {
+//        console.log('reference watcher', n, o);
+//        // remove old watcher
+//        deregisterEntityWatcher();
+//
+//        // create a new watcher for fresh value
+//        deregisterEntityWatcher = watcherFn(function () {
+//          return n;
+//        }, watchHandler, forceDeep);
+//      }
+//    });
+//
+//  }
 
   return this;
 };
@@ -542,10 +580,10 @@ function _applyTransformation(newVal, transformer) {
         '\nFeels like a bug.' +
         '\nYou should use a pure function inside link.map().' +
         '\nThis function should return transformed state object:' +
-        '\n' + this.transformer);
+        '\n' + transformer);
     }
 
-    if (target.field){
+    if (target.field) {
       target.state[target.field] = newTargetValue;
     } else {
       // update all fields of the old target
