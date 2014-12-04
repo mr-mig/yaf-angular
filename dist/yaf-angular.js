@@ -221,15 +221,9 @@ module.exports = function compositeDirectiveFactory(definition, state) {
       restrict: 'E',
       template: definition.template,
       compile: function (tEl, tAttr) {
-        var styles;
-
         if (!tAttr.state) {
           console.log('Warning! It seems you forgot to specify state attribute for \'' +
             definition.name + '\' element!');
-        }
-
-        if (definition.styles) {
-          styles = attachStyles(definition.styles);
         }
 
         return {
@@ -237,6 +231,12 @@ module.exports = function compositeDirectiveFactory(definition, state) {
             if (!scope.state) {
               scope.state = new CompositeState();
             }
+
+            var styles;
+            if (definition.styles) {
+              styles = attachStyles(definition.styles);
+            }
+
             if (scope.channel) {
               var channelNames = scope.channel.split(' ');
               channelNames.forEach(function (channel) {
@@ -335,21 +335,20 @@ module.exports = function elementDirectiveFactory(definition) {
       restrict: 'E',
       template: definition.template,
       compile: function (tEl, tAttr) {
-        var styles;
-
         if (!tAttr.state) {
           console.log('Warning! It seems you forgot to specify state attribute for \'' +
             definition.name + '\' element!');
-        }
-
-        if (definition.styles) {
-          styles = attachStyles(definition.styles);
         }
 
         return {
           pre: function (scope, el, attrs) {
             if (!scope.state) {
               scope.state = new ElementState();
+            }
+            var styles;
+
+            if (definition.styles) {
+              styles = attachStyles(definition.styles);
             }
 
             if (scope.channel) {
