@@ -2,8 +2,7 @@
 var conv = require('yaf').conventions;
 var tagReady = require('yaf/interfaces/common/tagReadyContext');
 var getOptionsValues = require('yaf/utils/getOptionsValues');
-var attachStyles = require('yaf/utils/attachStyles');
-var detachStyles = require('yaf/utils/detachStyles');
+var styleRef = require('yaf/utils/refCountStyles');
 var injectorReady = require('yaf/interfaces/common/injectorReadyContext');
 var templateReady = require('yaf/interfaces/common/templateReadyContext');
 var extend = require('extend');
@@ -39,7 +38,7 @@ module.exports = function elementDirectiveFactory(definition) {
             var styles;
 
             if (definition.styles) {
-              styles = attachStyles(definition.styles);
+              styles = styleRef.attachStyles(definition.name, definition.styles);
             }
 
             if (scope.channel) {
@@ -51,7 +50,7 @@ module.exports = function elementDirectiveFactory(definition) {
 
             if (definition.styles) {
               scope.$on('$destroy', function () {
-                detachStyles(styles);
+                styleRef.detachStyles(definition.name, styles);
               });
             }
 

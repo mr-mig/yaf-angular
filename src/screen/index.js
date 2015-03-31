@@ -1,8 +1,8 @@
 'use strict';
 var angular = require('angular-cjs');
-var screen = require('yaf').screen;
+var screenFactory = require('yaf').screen;
 var createScreen = require('./create');
 
 module.exports = function angularScreen(definition) {
-  return screen(definition, createScreen);
+  return screenFactory(definition, createScreen);
 };

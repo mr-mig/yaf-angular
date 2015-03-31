@@ -9,8 +9,8 @@ module.exports = ChannelsProvider;
 // gives sane warning message
 channels.get = function (name) {
   if (!channels[name]) {
-    console.log('Warning! The non-existent channel is accessed: ' + name + '.\n' +
-      'This is potentially abnormal situation: all active channels should ' +
+    console.log('Warning! The non-existent channel is accessed: ' + name +
+      '.\n' + 'This is potentially abnormal situation: all active channels should ' +
       'be created using channelsProvider.createChannels(<array>) ' +
       'or registered using the screen\'s "channels" field.');
     return new Channel(name);
@@ -19,7 +19,7 @@ channels.get = function (name) {
   return channels[name];
 };
 
-function Channel(name) {
+function Channel (name) {
   // channel name
   this.name = name;
 
@@ -40,9 +40,9 @@ function Channel(name) {
 }
 
 // angular-specific provider format
-function ChannelsProvider() {
+function ChannelsProvider () {
 
-  function add(name) {
+  function add (name) {
     channels[name] = new Channel(name);
   }
 
@@ -55,7 +55,7 @@ function ChannelsProvider() {
 }
 
 // this thing will be injected in angular
-function ChannelFactory($rootScope) {
+function ChannelFactory ($rootScope) {
   // links the given scope to this channel
   // any change will be propagated to this scope
   Channel.prototype.link = function (scope) {
@@ -70,7 +70,8 @@ function ChannelFactory($rootScope) {
   Channel.prototype.source = function (state, field) {
     if (!this.scopes.length) {
       throw new Error('Channel' + this.name + 'is not linked to any scope!\n' +
-        'All active channels should be linked to at least one scope to be able to watch state changes.' +
+        'All active channels should be linked to at least ' +
+        'one scope to be able to watch state changes.' +
         'Use channel.link(scope)');
     }
 
@@ -88,9 +89,11 @@ function ChannelFactory($rootScope) {
       return state[field];
     };
 
-    if (!field) watched = function () {
-      return state;
-    };
+    if (!field) {
+      watched = function () {
+        return state;
+      };
+    }
 
     var watchHandler = function (n, o) {
       if (n !== o) {
@@ -151,8 +154,7 @@ function ChannelFactory($rootScope) {
           '" has resetted the target state to "undefined"!' +
           '\nDo you really want this?' +
           '\nMaybe you should use a pure function inside channel.map().' +
-          '\nThis function should return transformed state object:' +
-          '\n' + this.transformer);
+          '\nThis function should return transformed state object:\n' + this.transformer);
       }
       targetScope.state = result;
     }.bind(this));
