@@ -7,8 +7,7 @@ define(["exports"], function (exports) {
   var getOptionsValues = require("yaf/utils/getOptionsValues");
   var linkInterface = require("yaf/interfaces/behavioural/link");
   var channelsInterface = require("yaf/interfaces/behavioural/channel");
-  var attachStyles = require("yaf/utils/attachStyles");
-  var detachStyles = require("yaf/utils/detachStyles");
+  var styleRef = require("yaf/utils/refCountStyles");
   var injectorReady = require("yaf/interfaces/common/injectorReadyContext");
   var templateReady = require("yaf/interfaces/common/templateReadyContext");
 
@@ -41,7 +40,7 @@ define(["exports"], function (exports) {
 
               var styles;
               if (definition.styles) {
-                styles = attachStyles(definition.styles);
+                styles = styleRef.attachStyles(definition.name, definition.styles);
               }
 
               if (scope.channel) {
@@ -53,8 +52,7 @@ define(["exports"], function (exports) {
 
               if (definition.styles) {
                 scope.$on("$destroy", function () {
-                  // todo potential mem leak here?
-                  detachStyles(styles);
+                  styleRef.detachStyles(definition.name, styles);
                 });
               }
 

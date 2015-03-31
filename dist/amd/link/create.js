@@ -79,6 +79,7 @@ define(["exports"], function (exports) {
     }).bind(this);
 
     var watcherFn = watchCollection ? this.scope.$watchCollection.bind(this.scope) : this.scope.$watch.bind(this.scope);
+
     var deregisterEntityWatcher = watcherFn(watched, watchHandler, forceDeep);
 
     //  if (watchReference) {

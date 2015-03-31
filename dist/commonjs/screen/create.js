@@ -1,7 +1,6 @@
 "use strict";
 var angular = require("angular-cjs");
-var attachStyles = require("yaf/utils/attachStyles");
-var detachStyles = require("yaf/utils/detachStyles");
+var styleRef = require("yaf/utils/refCountStyles");
 var compositeReady = require("yaf/interfaces/common/compositeReadyContext");
 var linkInterface = require("yaf/interfaces/behavioural/link");
 var channelsInterface = require("yaf/interfaces/behavioural/channel");
@@ -26,11 +25,11 @@ module.exports = function createScreen(definition) {
 
     var styles;
     if (definition.styles) {
-      styles = attachStyles(definition.styles);
+      styles = styleRef.attachStyles(definition.name, definition.styles);
     }
 
     $scope.$on("$destroy", function () {
-      detachStyles(styles);
+      styleRef.detachStyles(definition.name, styles);
     });
 
     var readyContext = extend(templateReady($scope), injectorReady(injectedCustomServices, definition.injectables), compositeReady(link, channels));

@@ -1,15 +1,15 @@
 System.register([], function (_export) {
-  var angular, screen, createScreen;
+  var angular, screenFactory, createScreen;
   return {
     setters: [],
     execute: function () {
       "use strict";
       angular = require("angular-cjs");
-      screen = require("yaf").screen;
+      screenFactory = require("yaf").screen;
       createScreen = require("./create");
 
       module.exports = function angularScreen(definition) {
-        return screen(definition, createScreen);
+        return screenFactory(definition, createScreen);
       };
     }
   };

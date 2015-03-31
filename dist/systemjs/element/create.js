@@ -1,5 +1,5 @@
 System.register([], function (_export) {
-  var conv, tagReady, getOptionsValues, attachStyles, detachStyles, injectorReady, templateReady, extend;
+  var conv, tagReady, getOptionsValues, styleRef, injectorReady, templateReady, extend;
   return {
     setters: [],
     execute: function () {
@@ -7,8 +7,7 @@ System.register([], function (_export) {
       conv = require("yaf").conventions;
       tagReady = require("yaf/interfaces/common/tagReadyContext");
       getOptionsValues = require("yaf/utils/getOptionsValues");
-      attachStyles = require("yaf/utils/attachStyles");
-      detachStyles = require("yaf/utils/detachStyles");
+      styleRef = require("yaf/utils/refCountStyles");
       injectorReady = require("yaf/interfaces/common/injectorReadyContext");
       templateReady = require("yaf/interfaces/common/templateReadyContext");
       extend = require("extend");
@@ -43,7 +42,7 @@ System.register([], function (_export) {
                   var styles;
 
                   if (definition.styles) {
-                    styles = attachStyles(definition.styles);
+                    styles = styleRef.attachStyles(definition.name, definition.styles);
                   }
 
                   if (scope.channel) {
@@ -55,7 +54,7 @@ System.register([], function (_export) {
 
                   if (definition.styles) {
                     scope.$on("$destroy", function () {
-                      detachStyles(styles);
+                      styleRef.detachStyles(definition.name, styles);
                     });
                   }
 

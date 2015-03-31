@@ -1,5 +1,5 @@
 System.register([], function (_export) {
-  var conv, extend, tagReady, compositeReady, getOptionsValues, linkInterface, channelsInterface, attachStyles, detachStyles, injectorReady, templateReady;
+  var conv, extend, tagReady, compositeReady, getOptionsValues, linkInterface, channelsInterface, styleRef, injectorReady, templateReady;
   return {
     setters: [],
     execute: function () {
@@ -11,8 +11,7 @@ System.register([], function (_export) {
       getOptionsValues = require("yaf/utils/getOptionsValues");
       linkInterface = require("yaf/interfaces/behavioural/link");
       channelsInterface = require("yaf/interfaces/behavioural/channel");
-      attachStyles = require("yaf/utils/attachStyles");
-      detachStyles = require("yaf/utils/detachStyles");
+      styleRef = require("yaf/utils/refCountStyles");
       injectorReady = require("yaf/interfaces/common/injectorReadyContext");
       templateReady = require("yaf/interfaces/common/templateReadyContext");
 
@@ -45,7 +44,7 @@ System.register([], function (_export) {
 
                   var styles;
                   if (definition.styles) {
-                    styles = attachStyles(definition.styles);
+                    styles = styleRef.attachStyles(definition.name, definition.styles);
                   }
 
                   if (scope.channel) {
@@ -57,8 +56,7 @@ System.register([], function (_export) {
 
                   if (definition.styles) {
                     scope.$on("$destroy", function () {
-                      // todo potential mem leak here?
-                      detachStyles(styles);
+                      styleRef.detachStyles(definition.name, styles);
                     });
                   }
 

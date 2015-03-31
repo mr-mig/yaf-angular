@@ -1,12 +1,11 @@
 System.register([], function (_export) {
-  var angular, attachStyles, detachStyles, compositeReady, linkInterface, channelsInterface, injectorReady, templateReady, extend;
+  var angular, styleRef, compositeReady, linkInterface, channelsInterface, injectorReady, templateReady, extend;
   return {
     setters: [],
     execute: function () {
       "use strict";
       angular = require("angular-cjs");
-      attachStyles = require("yaf/utils/attachStyles");
-      detachStyles = require("yaf/utils/detachStyles");
+      styleRef = require("yaf/utils/refCountStyles");
       compositeReady = require("yaf/interfaces/common/compositeReadyContext");
       linkInterface = require("yaf/interfaces/behavioural/link");
       channelsInterface = require("yaf/interfaces/behavioural/channel");
@@ -31,11 +30,11 @@ System.register([], function (_export) {
 
           var styles;
           if (definition.styles) {
-            styles = attachStyles(definition.styles);
+            styles = styleRef.attachStyles(definition.name, definition.styles);
           }
 
           $scope.$on("$destroy", function () {
-            detachStyles(styles);
+            styleRef.detachStyles(definition.name, styles);
           });
 
           var readyContext = extend(templateReady($scope), injectorReady(injectedCustomServices, definition.injectables), compositeReady(link, channels));

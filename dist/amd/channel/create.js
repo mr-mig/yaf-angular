@@ -67,7 +67,7 @@ define(["exports"], function (exports) {
 
     Channel.prototype.source = function (state, field) {
       if (!this.scopes.length) {
-        throw new Error("Channel" + this.name + "is not linked to any scope!\n" + "All active channels should be linked to at least one scope to be able to watch state changes." + "Use channel.link(scope)");
+        throw new Error("Channel" + this.name + "is not linked to any scope!\n" + "All active channels should be linked to at least " + "one scope to be able to watch state changes." + "Use channel.link(scope)");
       }
 
       this.sources.push({
@@ -83,9 +83,11 @@ define(["exports"], function (exports) {
         return state[field];
       };
 
-      if (!field) watched = function () {
-        return state;
-      };
+      if (!field) {
+        watched = function () {
+          return state;
+        };
+      }
 
       var watchHandler = (function (n, o) {
         if (n !== o) {
@@ -142,7 +144,7 @@ define(["exports"], function (exports) {
       return targetScope.$on(this.name, (function (event, sourceState) {
         var result = this.transformer(state, sourceState);
         if (result === undefined) {
-          console.log("Warning! The channel \"" + this.name + "\" has resetted the target state to \"undefined\"!" + "\nDo you really want this?" + "\nMaybe you should use a pure function inside channel.map()." + "\nThis function should return transformed state object:" + "\n" + this.transformer);
+          console.log("Warning! The channel \"" + this.name + "\" has resetted the target state to \"undefined\"!" + "\nDo you really want this?" + "\nMaybe you should use a pure function inside channel.map()." + "\nThis function should return transformed state object:\n" + this.transformer);
         }
         targetScope.state = result;
       }).bind(this));
