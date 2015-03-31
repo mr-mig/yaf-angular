@@ -3,13 +3,13 @@
 var angular = require('angular-cjs');
 
 module.exports = {
-  element: require('./lib/element'),
-  composite: require('./lib/composite'),
-  screen: require('./lib/screen'),
-  state: require('./lib/state'),
+  element: require('./src/element'),
+  composite: require('./src/composite'),
+  screen: require('./src/screen'),
+  state: require('./src/state'),
   // angular-specific
   module: angular.module('yaf-angular', [
-    require('./lib/link').name,
-    require('./lib/channel').name
+    require('./src/link').name,
+    require('./src/channel').name
   ])
 };
