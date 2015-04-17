@@ -64,7 +64,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	"use strict";
 
-	var angular = __webpack_require__(14);
+	var angular = __webpack_require__(8);
 
 	module.exports = {
 	  element: __webpack_require__(2),
@@ -80,9 +80,9 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var angular = __webpack_require__(14);
+	var angular = __webpack_require__(8);
 	var element = __webpack_require__(15).element;
-	var createElement = __webpack_require__(8);
+	var createElement = __webpack_require__(9);
 	var createState = __webpack_require__(5);
 
 	module.exports = function angularElement(definition) {
@@ -104,9 +104,9 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var angular = __webpack_require__(14);
+	var angular = __webpack_require__(8);
 	var composite = __webpack_require__(15).composite;
-	var createComposite = __webpack_require__(9);
+	var createComposite = __webpack_require__(10);
 	var createState = __webpack_require__(5);
 
 	// register composite using angular DI container
@@ -129,9 +129,9 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var angular = __webpack_require__(14);
+	var angular = __webpack_require__(8);
 	var screenFactory = __webpack_require__(15).screen;
-	var createScreen = __webpack_require__(10);
+	var createScreen = __webpack_require__(11);
 
 	module.exports = function angularScreen(definition) {
 	  return screenFactory(definition, createScreen);
@@ -142,9 +142,9 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var angular = __webpack_require__(14);
+	var angular = __webpack_require__(8);
 	var state = __webpack_require__(15).state;
-	var stateFactory = __webpack_require__(11);
+	var stateFactory = __webpack_require__(12);
 
 	// register the state object in angular DI container
 	module.exports = function angularState(definition) {
@@ -166,9 +166,9 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var angular = __webpack_require__(14);
+	var angular = __webpack_require__(8);
 	var link = __webpack_require__(15).link;
-	var createLink = __webpack_require__(12);
+	var createLink = __webpack_require__(13);
 
 	var result = link(createLink);
 
@@ -179,9 +179,9 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var angular = __webpack_require__(14);
+	var angular = __webpack_require__(8);
 	var channel = __webpack_require__(15).channel;
-	var createChannel = __webpack_require__(13);
+	var createChannel = __webpack_require__(14);
 
 	var result = channel(createChannel);
 
@@ -191,14 +191,22 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
+	__webpack_require__(18);
+	module.exports = angular;
+
+
+/***/ },
+/* 9 */
+/***/ function(module, exports, __webpack_require__) {
+
 	"use strict";
 	var conv = __webpack_require__(15).conventions;
-	var tagReady = __webpack_require__(18);
+	var tagReady = __webpack_require__(19);
 	var getOptionsValues = __webpack_require__(16);
 	var styleRef = __webpack_require__(17);
-	var injectorReady = __webpack_require__(19);
-	var templateReady = __webpack_require__(20);
-	var extend = __webpack_require__(24);
+	var injectorReady = __webpack_require__(20);
+	var templateReady = __webpack_require__(21);
+	var extend = __webpack_require__(27);
 
 	// use angular directive syntax to define element
 	module.exports = function elementDirectiveFactory(definition) {
@@ -269,20 +277,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 9 */
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	var conv = __webpack_require__(15).conventions;
-	var extend = __webpack_require__(24);
-	var tagReady = __webpack_require__(18);
-	var compositeReady = __webpack_require__(21);
+	var extend = __webpack_require__(27);
+	var tagReady = __webpack_require__(19);
+	var compositeReady = __webpack_require__(22);
 	var getOptionsValues = __webpack_require__(16);
-	var linkInterface = __webpack_require__(22);
-	var channelsInterface = __webpack_require__(23);
+	var linkInterface = __webpack_require__(23);
+	var channelsInterface = __webpack_require__(24);
 	var styleRef = __webpack_require__(17);
-	var injectorReady = __webpack_require__(19);
-	var templateReady = __webpack_require__(20);
+	var injectorReady = __webpack_require__(20);
+	var templateReady = __webpack_require__(21);
 
 	module.exports = function compositeDirectiveFactory(definition, state) {
 
@@ -353,18 +361,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 10 */
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var angular = __webpack_require__(14);
+	var angular = __webpack_require__(8);
 	var styleRef = __webpack_require__(17);
-	var compositeReady = __webpack_require__(21);
-	var linkInterface = __webpack_require__(22);
-	var channelsInterface = __webpack_require__(23);
-	var injectorReady = __webpack_require__(19);
-	var templateReady = __webpack_require__(20);
-	var extend = __webpack_require__(24);
+	var compositeReady = __webpack_require__(22);
+	var linkInterface = __webpack_require__(23);
+	var channelsInterface = __webpack_require__(24);
+	var injectorReady = __webpack_require__(20);
+	var templateReady = __webpack_require__(21);
+	var extend = __webpack_require__(27);
 
 	module.exports = function createScreen(definition) {
 	  var module = angular.module(definition.moduleName, definition.moduleDependencies);
@@ -403,7 +411,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 11 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	//todo
@@ -421,7 +429,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 12 */
+/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -598,7 +606,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 13 */
+/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -756,14 +764,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 14 */
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(44);
-	module.exports = angular;
-
-
-/***/ },
 /* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -771,12 +771,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	module.exports = {
 	  conventions: __webpack_require__(25),
-	  element: __webpack_require__(27),
-	  composite: __webpack_require__(28),
-	  screen: __webpack_require__(29),
+	  element: __webpack_require__(28),
+	  composite: __webpack_require__(29),
+	  screen: __webpack_require__(30),
 	  state: __webpack_require__(26),
-	  link: __webpack_require__(22),
-	  channel: __webpack_require__(23)
+	  link: __webpack_require__(23),
+	  channel: __webpack_require__(24)
 	};
 	//# sourceMappingURL=index.js.map
 
@@ -843,564 +843,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 /* 18 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	module.exports = function internals(el, state, options) {
-
-	  return {
-	    element: el,
-	    state: state,
-	    options: options
-	  };
-	};
-	//# sourceMappingURL=index.js.map
-
-/***/ },
-/* 19 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	module.exports = function injectorReadyContext(injected, injectables) {
-
-	  // combine injected components with the corresponding injectable names
-	  var injector = injectables.reduce(function (acc, name, idx) {
-	    acc[name] = injected[idx];
-	    return acc;
-	  }, {});
-
-	  return {
-	    injector: injector
-	  };
-	};
-	//# sourceMappingURL=index.js.map
-
-/***/ },
-/* 20 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	module.exports = function (scope) {
-	  return {
-	    templateScope: scope
-	  };
-	};
-	//# sourceMappingURL=index.js.map
-
-/***/ },
-/* 21 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	module.exports = function readyContext(link, channels) {
-
-	  return {
-	    link: link,
-	    channels: channels
-	  };
-	};
-	//# sourceMappingURL=index.js.map
-
-/***/ },
-/* 22 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var conv = __webpack_require__(25);
-
-	module.exports = function defineLink(createLink) {
-	  return {
-	    factoryFn: createLink,
-	    entityName: conv.behaviourComponentsNames.link,
-	    moduleName: conv.names.ngModule(conv.globalNames.framework, conv.behaviourComponentsNames.link)
-	  };
-	};
-	//# sourceMappingURL=index.js.map
-
-/***/ },
-/* 23 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var conv = __webpack_require__(25);
-
-	module.exports = function defineСhannel(createChannel) {
-	  return {
-	    factoryFn: createChannel,
-	    moduleName: conv.names.ngModule(conv.globalNames.framework, conv.behaviourComponentsNames.channel),
-	    entityName: conv.globalNames.channels
-	  };
-	};
-	//# sourceMappingURL=index.js.map
-
-/***/ },
-/* 24 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var hasOwn = Object.prototype.hasOwnProperty;
-	var toString = Object.prototype.toString;
-	var undefined;
-
-	var isPlainObject = function isPlainObject(obj) {
-		'use strict';
-		if (!obj || toString.call(obj) !== '[object Object]') {
-			return false;
-		}
-
-		var has_own_constructor = hasOwn.call(obj, 'constructor');
-		var has_is_property_of_method = obj.constructor && obj.constructor.prototype && hasOwn.call(obj.constructor.prototype, 'isPrototypeOf');
-		// Not own constructor property must be Object
-		if (obj.constructor && !has_own_constructor && !has_is_property_of_method) {
-			return false;
-		}
-
-		// Own properties are enumerated firstly, so to speed up,
-		// if last one is own, then all properties are own.
-		var key;
-		for (key in obj) {}
-
-		return key === undefined || hasOwn.call(obj, key);
-	};
-
-	module.exports = function extend() {
-		'use strict';
-		var options, name, src, copy, copyIsArray, clone,
-			target = arguments[0],
-			i = 1,
-			length = arguments.length,
-			deep = false;
-
-		// Handle a deep copy situation
-		if (typeof target === 'boolean') {
-			deep = target;
-			target = arguments[1] || {};
-			// skip the boolean and the target
-			i = 2;
-		} else if ((typeof target !== 'object' && typeof target !== 'function') || target == null) {
-			target = {};
-		}
-
-		for (; i < length; ++i) {
-			options = arguments[i];
-			// Only deal with non-null/undefined values
-			if (options != null) {
-				// Extend the base object
-				for (name in options) {
-					src = target[name];
-					copy = options[name];
-
-					// Prevent never-ending loop
-					if (target === copy) {
-						continue;
-					}
-
-					// Recurse if we're merging plain objects or arrays
-					if (deep && copy && (isPlainObject(copy) || (copyIsArray = Array.isArray(copy)))) {
-						if (copyIsArray) {
-							copyIsArray = false;
-							clone = src && Array.isArray(src) ? src : [];
-						} else {
-							clone = src && isPlainObject(src) ? src : {};
-						}
-
-						// Never move original objects, clone them
-						target[name] = extend(deep, clone, copy);
-
-					// Don't bring in undefined values
-					} else if (copy !== undefined) {
-						target[name] = copy;
-					}
-				}
-			}
-		}
-
-		// Return the modified object
-		return target;
-	};
-
-
-
-/***/ },
-/* 25 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var firstLower = __webpack_require__(30);
-	var firstUpper = __webpack_require__(31);
-	var composeName = __webpack_require__(32);
-
-	module.exports = {
-	  structureComponentsNames: __webpack_require__(33),
-	  behaviourComponentsNames: __webpack_require__(34),
-	  globalNames: __webpack_require__(35),
-	  names: {
-	    element: composeName(firstLower),
-	    state: composeName(firstUpper, __webpack_require__(34).state),
-	    composite: composeName(firstLower),
-	    screen: composeName(firstLower),
-	    ngModule: __webpack_require__(36)
-	  }
-	};
-	//# sourceMappingURL=index.js.map
-
-/***/ },
-/* 26 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var conv = __webpack_require__(25);
-
-	module.exports = function state(definition, factoryFn) {
-	  var stateName = conv.names.state(definition.name);
-
-	  return {
-	    entityName: stateName,
-	    factoryFn: factoryFn(definition.state)
-	  };
-	};
-	//# sourceMappingURL=index.js.map
-
-/***/ },
-/* 27 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var conv = __webpack_require__(25);
-	var component = __webpack_require__(37);
-	var stateful = __webpack_require__(41);
-	var taglike = __webpack_require__(38);
-	var injector = __webpack_require__(39);
-	var compose = __webpack_require__(40);
-
-	module.exports = function createElement(definition, createStateFn, createElementFn) {
-	  var createOfType = compose(component, injector, stateful, taglike)(definition);
-	  var componentDefinition = createOfType(conv.structureComponentsNames.element);
-
-	  var state = createStateFn(componentDefinition);
-	  var element = createElementFn(componentDefinition);
-	  return element;
-	};
-	//# sourceMappingURL=index.js.map
-
-/***/ },
-/* 28 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var conv = __webpack_require__(25);
-	var component = __webpack_require__(37);
-	var stateful = __webpack_require__(41);
-	var taglike = __webpack_require__(38);
-	var injector = __webpack_require__(39);
-	var compose = __webpack_require__(40);
-
-	// right now composite is totaly the same as element
-	// this fact may change in the future (and implementations may differ)
-	module.exports = function createComposite(definition, createStateFn, createCompositeFn) {
-	  var createOfType = compose(component, injector, stateful, taglike)(definition);
-	  var componentDefinition = createOfType(conv.structureComponentsNames.composite);
-
-	  var state = createStateFn(componentDefinition);
-	  var composite = createCompositeFn(componentDefinition);
-	  return composite;
-	};
-	//# sourceMappingURL=index.js.map
-
-/***/ },
-/* 29 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var conv = __webpack_require__(25);
-	var component = __webpack_require__(37);
-	var routable = __webpack_require__(42);
-	var channelSource = __webpack_require__(43);
-	var taglike = __webpack_require__(38);
-	var injector = __webpack_require__(39);
-	var compose = __webpack_require__(40);
-
-	module.exports = function createScreen(definition, createScreenFn) {
-	  var createOfType = compose(component, routable, channelSource, injector, taglike)(definition);
-	  var componentDefinition = createOfType(conv.structureComponentsNames.screen);
-
-	  return createScreenFn(componentDefinition);
-	};
-	//# sourceMappingURL=index.js.map
-
-/***/ },
-/* 30 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	module.exports = function firstLower(string) {
-	  return string.charAt(0).toLowerCase() + string.substr(1);
-	};
-	//# sourceMappingURL=firstLower.js.map
-
-/***/ },
-/* 31 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	module.exports = function firstUpper(string) {
-	  return string.charAt(0).toUpperCase() + string.substr(1);
-	};
-	//# sourceMappingURL=firstUpper.js.map
-
-/***/ },
-/* 32 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var firstUpper = __webpack_require__(31);
-
-	module.exports = function composeName(firstWordTransformer, component) {
-	  component = component || "";
-
-	  return function (entity) {
-	    return [firstWordTransformer(entity), firstUpper(component)].join("");
-	  };
-	};
-	//# sourceMappingURL=composeName.js.map
-
-/***/ },
-/* 33 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	module.exports = {
-	  element: "elements",
-	  composite: "composites",
-	  screen: "screens"
-	};
-	//# sourceMappingURL=structureComponentsNames.js.map
-
-/***/ },
-/* 34 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	module.exports = {
-	  state: "state",
-	  channel: "channel",
-	  link: "link"
-	};
-	//# sourceMappingURL=behaviourComponentsNames.js.map
-
-/***/ },
-/* 35 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	module.exports = {
-	  channels: "channels",
-	  framework: "yaf"
-	};
-	//# sourceMappingURL=globalNames.js.map
-
-/***/ },
-/* 36 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	module.exports = function angularModuleName(entity, componentName) {
-	  return [entity.toLowerCase(), componentName].join(".");
-	};
-	//# sourceMappingURL=angularModuleName.js.map
-
-/***/ },
-/* 37 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var conv = __webpack_require__(25);
-	var extend = __webpack_require__(24);
-
-	module.exports = function component(definition) {
-	  return function componentOfType(type) {
-	    var moduleName = conv.names.ngModule(type, definition.name);
-
-	    return extend(definition, {
-	      moduleName: moduleName,
-	      type: type
-	    });
-	  };
-	};
-	//# sourceMappingURL=index.js.map
-
-/***/ },
-/* 38 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var extend = __webpack_require__(24);
-
-	var defaultSchema = {
-	  inject: {},
-	  template: null,
-	  styles: null,
-	  ready: function ready() {}
-	};
-
-	function verify(def) {
-	  if (!def.name) {
-	    throw new Error("You tried to create the component without name specified!");
-	  }
-
-	  if (!def.template) {
-	    throw new Error("You tried to create the compoennts without template specified!");
-	  }
-
-	  return def;
-	}
-
-	module.exports = function taglike(definition) {
-	  var component = extend(true, {}, defaultSchema, definition);
-	  return verify(component);
-	};
-
-	//'componentName' : 'fromModuleName'
-	//'exportName' : ModuleObject
-
-	//    this.element;
-	//    this.state;
-	//    this.options;
-	//    this.injector;
-	//    this.channels;
-	//    this.templateScope;
-	//# sourceMappingURL=index.js.map
-
-/***/ },
-/* 39 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var mapValues = __webpack_require__(45);
-	var uniq = __webpack_require__(46);
-	var extend = __webpack_require__(24);
-
-	module.exports = function injector(definition) {
-	  var modules = uniq(mapValues(definition.inject));
-	  var injectables = Object.keys(definition.inject);
-
-	  return extend(definition, {
-	    moduleDependencies: modules,
-	    injectables: injectables
-	  });
-	};
-	//# sourceMappingURL=index.js.map
-
-/***/ },
-/* 40 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	module.exports = function compose() {
-	  var funcs = arguments;
-
-	  return function () {
-	    var args = arguments,
-	        length = funcs.length;
-
-	    while (length--) {
-	      args = [funcs[length].apply(this, args)];
-	    }
-	    return args[0];
-	  };
-	};
-	//# sourceMappingURL=compose.js.map
-
-/***/ },
-/* 41 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var extend = __webpack_require__(24);
-	var isFunction = __webpack_require__(47);
-
-	var defaultSchema = {
-	  state: {},
-	  options: {}
-	};
-
-	function verifyNoFunctions(def, prop) {
-	  var property = def[prop];
-
-	  var fns = Object.keys(property).map(function (key) {
-	    return property[key];
-	  }).filter(isFunction);
-
-	  if (fns.length) {
-	    console.log("Warning! Property \"" + prop + "\" in " + def.name + " contain function definitions.\n" + "This may result in incorrect behaviour!");
-	  }
-	}
-
-	module.exports = function stateful(definition) {
-	  var component = extend(true, {}, defaultSchema, definition);
-	  verifyNoFunctions(component, "state");
-	  verifyNoFunctions(component, "options");
-	  return component;
-	};
-
-	// element's state object
-
-	// element's options
-	//# sourceMappingURL=index.js.map
-
-/***/ },
-/* 42 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var extend = __webpack_require__(24);
-	var isFunction = __webpack_require__(47);
-
-	var defaultSchema = {
-	  route: "/"
-	};
-
-	var verify = function verify(def) {
-	  if (!def.route) {
-	    throw new Error("You tried to create a routable component without route specified!");
-	  }
-	  return def;
-	};
-
-	module.exports = function stateful(definition) {
-	  var component = extend(true, {}, defaultSchema, definition);
-	  return verify(component);
-	};
-	//# sourceMappingURL=index.js.map
-
-/***/ },
-/* 43 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var extend = __webpack_require__(24);
-	var defaultSchema = {
-	  channels: []
-	};
-
-	var verify = function verify(def) {
-	  if (!Array.isArray(def.channels)) {
-	    throw new Error("You have tried to create a channel source component " + "with non-array \"channels\" field!\n" + "This is incorrect, channels can be automatically created only from array notation.\n" + "You should specify something like \"channels: [\"myChannel\"] in component definition.\"");
-	  }
-	  return def;
-	};
-
-	module.exports = function (definition) {
-	  var component = extend(true, definition, defaultSchema);
-	  return verify(component);
-	};
-	//# sourceMappingURL=index.js.map
-
-/***/ },
-/* 44 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var require;/**
@@ -27717,7 +27159,576 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = angular
 
 /***/ },
+/* 19 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	module.exports = function internals(el, state, options) {
+
+	  return {
+	    element: el,
+	    state: state,
+	    options: options
+	  };
+	};
+	//# sourceMappingURL=index.js.map
+
+/***/ },
+/* 20 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	module.exports = function injectorReadyContext(injected, injectables) {
+
+	  // combine injected components with the corresponding injectable names
+	  var injector = injectables.reduce(function (acc, name, idx) {
+	    acc[name] = injected[idx];
+	    return acc;
+	  }, {});
+
+	  return {
+	    injector: injector
+	  };
+	};
+	//# sourceMappingURL=index.js.map
+
+/***/ },
+/* 21 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	module.exports = function (scope) {
+	  return {
+	    templateScope: scope
+	  };
+	};
+	//# sourceMappingURL=index.js.map
+
+/***/ },
+/* 22 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	module.exports = function readyContext(link, channels) {
+
+	  return {
+	    link: link,
+	    channels: channels
+	  };
+	};
+	//# sourceMappingURL=index.js.map
+
+/***/ },
+/* 23 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var conv = __webpack_require__(25);
+
+	module.exports = function defineLink(createLink) {
+	  return {
+	    factoryFn: createLink,
+	    entityName: conv.behaviourComponentsNames.link,
+	    moduleName: conv.names.ngModule(conv.globalNames.framework, conv.behaviourComponentsNames.link)
+	  };
+	};
+	//# sourceMappingURL=index.js.map
+
+/***/ },
+/* 24 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var conv = __webpack_require__(25);
+
+	module.exports = function defineСhannel(createChannel) {
+	  return {
+	    factoryFn: createChannel,
+	    moduleName: conv.names.ngModule(conv.globalNames.framework, conv.behaviourComponentsNames.channel),
+	    entityName: conv.globalNames.channels
+	  };
+	};
+	//# sourceMappingURL=index.js.map
+
+/***/ },
+/* 25 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var firstLower = __webpack_require__(31);
+	var firstUpper = __webpack_require__(32);
+	var composeName = __webpack_require__(33);
+
+	module.exports = {
+	  structureComponentsNames: __webpack_require__(34),
+	  behaviourComponentsNames: __webpack_require__(35),
+	  globalNames: __webpack_require__(36),
+	  names: {
+	    element: composeName(firstLower),
+	    state: composeName(firstUpper, __webpack_require__(35).state),
+	    composite: composeName(firstLower),
+	    screen: composeName(firstLower),
+	    ngModule: __webpack_require__(37)
+	  }
+	};
+	//# sourceMappingURL=index.js.map
+
+/***/ },
+/* 26 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var conv = __webpack_require__(25);
+
+	module.exports = function state(definition, factoryFn) {
+	  var stateName = conv.names.state(definition.name);
+
+	  return {
+	    entityName: stateName,
+	    factoryFn: factoryFn(definition.state)
+	  };
+	};
+	//# sourceMappingURL=index.js.map
+
+/***/ },
+/* 27 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var hasOwn = Object.prototype.hasOwnProperty;
+	var toString = Object.prototype.toString;
+	var undefined;
+
+	var isPlainObject = function isPlainObject(obj) {
+		'use strict';
+		if (!obj || toString.call(obj) !== '[object Object]') {
+			return false;
+		}
+
+		var has_own_constructor = hasOwn.call(obj, 'constructor');
+		var has_is_property_of_method = obj.constructor && obj.constructor.prototype && hasOwn.call(obj.constructor.prototype, 'isPrototypeOf');
+		// Not own constructor property must be Object
+		if (obj.constructor && !has_own_constructor && !has_is_property_of_method) {
+			return false;
+		}
+
+		// Own properties are enumerated firstly, so to speed up,
+		// if last one is own, then all properties are own.
+		var key;
+		for (key in obj) {}
+
+		return key === undefined || hasOwn.call(obj, key);
+	};
+
+	module.exports = function extend() {
+		'use strict';
+		var options, name, src, copy, copyIsArray, clone,
+			target = arguments[0],
+			i = 1,
+			length = arguments.length,
+			deep = false;
+
+		// Handle a deep copy situation
+		if (typeof target === 'boolean') {
+			deep = target;
+			target = arguments[1] || {};
+			// skip the boolean and the target
+			i = 2;
+		} else if ((typeof target !== 'object' && typeof target !== 'function') || target == null) {
+			target = {};
+		}
+
+		for (; i < length; ++i) {
+			options = arguments[i];
+			// Only deal with non-null/undefined values
+			if (options != null) {
+				// Extend the base object
+				for (name in options) {
+					src = target[name];
+					copy = options[name];
+
+					// Prevent never-ending loop
+					if (target === copy) {
+						continue;
+					}
+
+					// Recurse if we're merging plain objects or arrays
+					if (deep && copy && (isPlainObject(copy) || (copyIsArray = Array.isArray(copy)))) {
+						if (copyIsArray) {
+							copyIsArray = false;
+							clone = src && Array.isArray(src) ? src : [];
+						} else {
+							clone = src && isPlainObject(src) ? src : {};
+						}
+
+						// Never move original objects, clone them
+						target[name] = extend(deep, clone, copy);
+
+					// Don't bring in undefined values
+					} else if (copy !== undefined) {
+						target[name] = copy;
+					}
+				}
+			}
+		}
+
+		// Return the modified object
+		return target;
+	};
+
+
+
+/***/ },
+/* 28 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var conv = __webpack_require__(25);
+	var component = __webpack_require__(38);
+	var stateful = __webpack_require__(39);
+	var taglike = __webpack_require__(40);
+	var injector = __webpack_require__(41);
+	var compose = __webpack_require__(42);
+
+	module.exports = function createElement(definition, createStateFn, createElementFn) {
+	  var createOfType = compose(component, injector, stateful, taglike)(definition);
+	  var componentDefinition = createOfType(conv.structureComponentsNames.element);
+
+	  var state = createStateFn(componentDefinition);
+	  var element = createElementFn(componentDefinition);
+	  return element;
+	};
+	//# sourceMappingURL=index.js.map
+
+/***/ },
+/* 29 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var conv = __webpack_require__(25);
+	var component = __webpack_require__(38);
+	var stateful = __webpack_require__(39);
+	var taglike = __webpack_require__(40);
+	var injector = __webpack_require__(41);
+	var compose = __webpack_require__(42);
+
+	// right now composite is totaly the same as element
+	// this fact may change in the future (and implementations may differ)
+	module.exports = function createComposite(definition, createStateFn, createCompositeFn) {
+	  var createOfType = compose(component, injector, stateful, taglike)(definition);
+	  var componentDefinition = createOfType(conv.structureComponentsNames.composite);
+
+	  var state = createStateFn(componentDefinition);
+	  var composite = createCompositeFn(componentDefinition);
+	  return composite;
+	};
+	//# sourceMappingURL=index.js.map
+
+/***/ },
+/* 30 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var conv = __webpack_require__(25);
+	var component = __webpack_require__(38);
+	var routable = __webpack_require__(43);
+	var channelSource = __webpack_require__(44);
+	var taglike = __webpack_require__(40);
+	var injector = __webpack_require__(41);
+	var compose = __webpack_require__(42);
+
+	module.exports = function createScreen(definition, createScreenFn) {
+	  var createOfType = compose(component, routable, channelSource, injector, taglike)(definition);
+	  var componentDefinition = createOfType(conv.structureComponentsNames.screen);
+
+	  return createScreenFn(componentDefinition);
+	};
+	//# sourceMappingURL=index.js.map
+
+/***/ },
+/* 31 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	module.exports = function firstLower(string) {
+	  return string.charAt(0).toLowerCase() + string.substr(1);
+	};
+	//# sourceMappingURL=firstLower.js.map
+
+/***/ },
+/* 32 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	module.exports = function firstUpper(string) {
+	  return string.charAt(0).toUpperCase() + string.substr(1);
+	};
+	//# sourceMappingURL=firstUpper.js.map
+
+/***/ },
+/* 33 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var firstUpper = __webpack_require__(32);
+
+	module.exports = function composeName(firstWordTransformer, component) {
+	  component = component || "";
+
+	  return function (entity) {
+	    return [firstWordTransformer(entity), firstUpper(component)].join("");
+	  };
+	};
+	//# sourceMappingURL=composeName.js.map
+
+/***/ },
+/* 34 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	module.exports = {
+	  element: "elements",
+	  composite: "composites",
+	  screen: "screens"
+	};
+	//# sourceMappingURL=structureComponentsNames.js.map
+
+/***/ },
+/* 35 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	module.exports = {
+	  state: "state",
+	  channel: "channel",
+	  link: "link"
+	};
+	//# sourceMappingURL=behaviourComponentsNames.js.map
+
+/***/ },
+/* 36 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	module.exports = {
+	  channels: "channels",
+	  framework: "yaf"
+	};
+	//# sourceMappingURL=globalNames.js.map
+
+/***/ },
+/* 37 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	module.exports = function angularModuleName(entity, componentName) {
+	  return [entity.toLowerCase(), componentName].join(".");
+	};
+	//# sourceMappingURL=angularModuleName.js.map
+
+/***/ },
+/* 38 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var conv = __webpack_require__(25);
+	var extend = __webpack_require__(27);
+
+	module.exports = function component(definition) {
+	  return function componentOfType(type) {
+	    var moduleName = conv.names.ngModule(type, definition.name);
+
+	    return extend(definition, {
+	      moduleName: moduleName,
+	      type: type
+	    });
+	  };
+	};
+	//# sourceMappingURL=index.js.map
+
+/***/ },
+/* 39 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var extend = __webpack_require__(27);
+	var isFunction = __webpack_require__(45);
+
+	var defaultSchema = {
+	  state: {},
+	  options: {}
+	};
+
+	function verifyNoFunctions(def, prop) {
+	  var property = def[prop];
+
+	  var fns = Object.keys(property).map(function (key) {
+	    return property[key];
+	  }).filter(isFunction);
+
+	  if (fns.length) {
+	    console.log("Warning! Property \"" + prop + "\" in " + def.name + " contain function definitions.\n" + "This may result in incorrect behaviour!");
+	  }
+	}
+
+	module.exports = function stateful(definition) {
+	  var component = extend(true, {}, defaultSchema, definition);
+	  verifyNoFunctions(component, "state");
+	  verifyNoFunctions(component, "options");
+	  return component;
+	};
+
+	// element's state object
+
+	// element's options
+	//# sourceMappingURL=index.js.map
+
+/***/ },
+/* 40 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var extend = __webpack_require__(27);
+
+	var defaultSchema = {
+	  inject: {},
+	  template: null,
+	  styles: null,
+	  ready: function ready() {}
+	};
+
+	function verify(def) {
+	  if (!def.name) {
+	    throw new Error("You tried to create the component without name specified!");
+	  }
+
+	  if (!def.template) {
+	    throw new Error("You tried to create the compoennts without template specified!");
+	  }
+
+	  return def;
+	}
+
+	module.exports = function taglike(definition) {
+	  var component = extend(true, {}, defaultSchema, definition);
+	  return verify(component);
+	};
+
+	//'componentName' : 'fromModuleName'
+	//'exportName' : ModuleObject
+
+	//    this.element;
+	//    this.state;
+	//    this.options;
+	//    this.injector;
+	//    this.channels;
+	//    this.templateScope;
+	//# sourceMappingURL=index.js.map
+
+/***/ },
+/* 41 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var mapValues = __webpack_require__(46);
+	var uniq = __webpack_require__(47);
+	var extend = __webpack_require__(27);
+
+	module.exports = function injector(definition) {
+	  var modules = uniq(mapValues(definition.inject));
+	  var injectables = Object.keys(definition.inject);
+
+	  return extend(definition, {
+	    moduleDependencies: modules,
+	    injectables: injectables
+	  });
+	};
+	//# sourceMappingURL=index.js.map
+
+/***/ },
+/* 42 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	module.exports = function compose() {
+	  var funcs = arguments;
+
+	  return function () {
+	    var args = arguments,
+	        length = funcs.length;
+
+	    while (length--) {
+	      args = [funcs[length].apply(this, args)];
+	    }
+	    return args[0];
+	  };
+	};
+	//# sourceMappingURL=compose.js.map
+
+/***/ },
+/* 43 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var extend = __webpack_require__(27);
+	var isFunction = __webpack_require__(45);
+
+	var defaultSchema = {
+	  route: "/"
+	};
+
+	var verify = function verify(def) {
+	  if (!def.route) {
+	    throw new Error("You tried to create a routable component without route specified!");
+	  }
+	  return def;
+	};
+
+	module.exports = function stateful(definition) {
+	  var component = extend(true, {}, defaultSchema, definition);
+	  return verify(component);
+	};
+	//# sourceMappingURL=index.js.map
+
+/***/ },
+/* 44 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var extend = __webpack_require__(27);
+	var defaultSchema = {
+	  channels: []
+	};
+
+	var verify = function verify(def) {
+	  if (!Array.isArray(def.channels)) {
+	    throw new Error("You have tried to create a channel source component " + "with non-array \"channels\" field!\n" + "This is incorrect, channels can be automatically created only from array notation.\n" + "You should specify something like \"channels: [\"myChannel\"] in component definition.\"");
+	  }
+	  return def;
+	};
+
+	module.exports = function (definition) {
+	  var component = extend(true, definition, defaultSchema);
+	  return verify(component);
+	};
+	//# sourceMappingURL=index.js.map
+
+/***/ },
 /* 45 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	module.exports = function (fn) {
+	  return !!(fn && fn.constructor && fn.call && fn.apply);
+	};
+	//# sourceMappingURL=isFunction.js.map
+
+/***/ },
+/* 46 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -27730,7 +27741,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	//# sourceMappingURL=mapValues.js.map
 
 /***/ },
-/* 46 */
+/* 47 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -27741,17 +27752,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {}));
 	};
 	//# sourceMappingURL=uniq.js.map
-
-/***/ },
-/* 47 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	module.exports = function (fn) {
-	  return !!(fn && fn.constructor && fn.call && fn.apply);
-	};
-	//# sourceMappingURL=isFunction.js.map
 
 /***/ }
 /******/ ])
