@@ -5,7 +5,7 @@ System.register([], function (_export) {
     execute: function () {
       "use strict";
 
-      angular = require("angular-cjs");
+      angular = require("angular");
 
       module.exports = {
         element: require("./element/index"),

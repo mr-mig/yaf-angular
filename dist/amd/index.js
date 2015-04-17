@@ -1,7 +1,7 @@
 define(["exports"], function (exports) {
   "use strict";
 
-  var angular = require("angular-cjs");
+  var angular = require("angular");
 
   module.exports = {
     element: require("./element/index"),

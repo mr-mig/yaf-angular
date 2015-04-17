@@ -1,5 +1,5 @@
 'use strict';
-var angular = require('angular-cjs');
+var angular = require('angular');
 var screenFactory = require('yaf').screen;
 var createScreen = require('./create');
 

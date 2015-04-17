@@ -4,7 +4,7 @@ System.register([], function (_export) {
     setters: [],
     execute: function () {
       "use strict";
-      angular = require("angular-cjs");
+      angular = require("angular");
       composite = require("yaf").composite;
       createComposite = require("./create");
       createState = require("../state");

@@ -27,6 +27,7 @@ module.exports = {
   },
   module: {
     loaders: [
+      { test: /[\/]angular.js$/, loader: 'exports?angular'},
       { test: /src\/.*\.js$/, loader: 'babel-loader'}
     ]
   }

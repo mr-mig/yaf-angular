@@ -1,6 +1,6 @@
 define(["exports"], function (exports) {
   "use strict";
-  var angular = require("angular-cjs");
+  var angular = require("angular");
   var state = require("yaf").state;
   var stateFactory = require("./create");
 

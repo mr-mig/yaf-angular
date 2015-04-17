@@ -1,5 +1,5 @@
 'use strict';
-var angular = require('angular-cjs');
+var angular = require('angular');
 var element = require('yaf').element;
 var createElement = require('./create');
 var createState = require('../state');

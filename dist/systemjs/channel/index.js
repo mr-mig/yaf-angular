@@ -4,7 +4,7 @@ System.register([], function (_export) {
     setters: [],
     execute: function () {
       "use strict";
-      angular = require("angular-cjs");
+      angular = require("angular");
       channel = require("yaf").channel;
       createChannel = require("./create");
       result = channel(createChannel);

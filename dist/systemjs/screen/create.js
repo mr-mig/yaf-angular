@@ -4,7 +4,7 @@ System.register([], function (_export) {
     setters: [],
     execute: function () {
       "use strict";
-      angular = require("angular-cjs");
+      angular = require("angular");
       styleRef = require("yaf/utils/refCountStyles");
       compositeReady = require("yaf/interfaces/common/compositeReadyContext");
       linkInterface = require("yaf/interfaces/behavioural/link");

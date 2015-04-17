@@ -1,5 +1,5 @@
 'use strict';
-var angular = require('angular-cjs');
+var angular = require('angular');
 var styleRef = require('yaf/utils/refCountStyles');
 var compositeReady = require('yaf/interfaces/common/compositeReadyContext');
 var linkInterface = require('yaf/interfaces/behavioural/link');
